@@ -1,0 +1,25 @@
+version: '3.5'
+services:
+  web:
+    container_name: project-root
+    build:
+      context: docker/web
+    volumes:
+      - ./docker/web/project-root/Packages:/var/www/html/Packages
+      - ./docker/web/project-root/Data/Persistent:/var/www/html/Data/Persistent
+      - ./docker/web/project-root/Data/Logs:/var/www/html/Data/Logs
+      - ./docker/web/project-root/Data/DoctrineMigrations:/var/www/html/Data/DoctrineMigrations
+      - ./docker/web/project-root/Configuration:/var/www/html/Configuration
+    environment:
+      - VIRTUAL_HOST=local.project.loc
+      - FLOW_REWRITEURLS=1
+    ports:
+      - "8082:80"
+      - "3006:443"
+    networks:
+      - services
+
+networks:
+  services:
+    external:
+      name: services_network

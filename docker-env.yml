@@ -1,0 +1,9 @@
+MYSQL_ROOT_PASSWORD=root
+MYSQL_USER=root
+MYSQL_PASSWORD=root
+MYSQL_DATABASE=brylliant_dev
+
+DB_HOST=db
+DB_NAME=root
+DB_USER=root
+DB_PASSWORD=root
